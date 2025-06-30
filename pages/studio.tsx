@@ -87,11 +87,14 @@ export default function Studio() {
                 </div>
               </div>
               <div className="card p-8">
-                <div className="aspect-video bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">🎵</div>
-                    <p className="text-dark-300">Galeri Studio</p>
-                  </div>
+                <div className="aspect-video bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/HhaL0VhzfPI"
+                    title="Galeri Studio Aley"
+                    className="w-full h-full rounded-lg"
+                    allowFullScreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  ></iframe>
                 </div>
               </div>
             </div>
