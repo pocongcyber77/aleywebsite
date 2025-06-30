@@ -27,7 +27,7 @@ const StayTuned: NextPage = () => {
     <>
       <Head>
         <title>Stay Tuned - Coming Soon</title>
-        <meta name="description" content="Halaman ini masih dalam tahap pengembangan. Kami sedang menyiapkan sesuatu yang luar biasa untuk Anda." />
+        <meta name="description" content="kami sedang berada dalam tahap pengembangan. Kami sedang menyiapkan sesuatu yang mantap untuk Anda." />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
@@ -69,9 +69,9 @@ const StayTuned: NextPage = () => {
           </h1>
           
           <div className="text-xl md:text-2xl text-[#F3F3F3]/80 mb-8 leading-relaxed">
-            Halaman ini masih dalam tahap pengembangan.
+            Kami sedang dalam tahap pengembangan.
             <br />
-            Kami sedang menyiapkan sesuatu yang luar biasa untuk Anda
+            Kami sedang menyiapkan hal terbaik untuk Anda
             <span className="text-[#9B111E] font-mono">{dots}</span>
           </div>
 
@@ -87,9 +87,9 @@ const StayTuned: NextPage = () => {
           {/* Message */}
           <div className="bg-[#1A1A1A]/50 border border-[#9B111E]/30 rounded-xl p-6 mb-8">
             <p className="text-[#F3F3F3]/90 text-lg">
-              Fitur ini belum tersedia, tapi akan segera hadir! 
+              Fitur ini belum tersedia, Coming Soon! 
               <br />
-              Terima kasih telah menunggu.
+              Stay Tune Bestie!.
             </p>
           </div>
 
@@ -104,8 +104,8 @@ const StayTuned: NextPage = () => {
 
           {/* Additional Info */}
           <div className="mt-12 text-[#F3F3F3]/50 text-sm">
-            <p>Jika Anda melihat halaman ini, berarti fitur yang Anda cari sedang dalam pengembangan.</p>
-            <p className="mt-2">Silakan cek kembali nanti atau hubungi kami untuk informasi lebih lanjut.</p>
+            <p>Jika Kamu ngeliatin aku masih gini, sabarlah tunggu aku berkembang agar menemuimu dalam masa yang tepat.</p>
+            <p className="mt-2">Silakan cek nanti atau hubungi aku untuk informasi lebih lanjut.</p>
           </div>
         </div>
 

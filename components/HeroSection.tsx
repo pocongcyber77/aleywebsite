@@ -1,12 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Play, Music, Mic, Headphones } from 'lucide-react';
+import TypeIt from 'typeit';
 
 const HeroSection = () => {
   const [currentIcon, setCurrentIcon] = useState(0);
   const icons = [Music, Mic, Headphones];
+  const typeItRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,6 +17,22 @@ const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, [icons.length]);
+
+  useEffect(() => {
+    if (typeItRef.current) {
+      new TypeIt(typeItRef.current, {
+        strings: ["Setiap lagu punya cerita. Kami di sini bukan hanya untuk mendengar, tapi untuk merasakan, memahami, dan menghidupkannya bersama anda!"],
+        speed: 25,
+        waitUntilVisible: true,
+        cursor: false,
+        loop: true,
+        loopDelay: 3000,
+        afterComplete: function (instance: any) {
+          instance.destroy(); 
+        }
+      }).go();
+    }
+  }, []);
 
   const CurrentIcon = icons[currentIcon];
 
@@ -50,14 +68,17 @@ const HeroSection = () => {
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-white mb-6 text-shadow-lg">
           Sound. Alive. Loud.
-            <span className="block gradient-text">Where Sound Breathes to Life</span>
+            <span className="block animate-crimson-shimmer">Where Sound Breathes to Life</span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl sm:text-2xl text-dark-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Setiap lagu punya cerita. Kami di sini bukan hanya untuk mendengar, tapi untuk merasakan, memahami, dan
-            <span className="text-primary-400 font-semibold">  menghidupkannya bersama anda!</span>
-          </p>
+          {/* Subtitle with typing animation */}
+          <div className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <span 
+              ref={typeItRef} 
+              className="text-[#F3F3F3]"
+              style={{ color: '#F3F3F3' }}
+            ></span>
+          </div>
 
           {/* Features */}
           <div className="flex flex-wrap justify-center gap-6 mb-12 text-dark-300">
@@ -97,7 +118,7 @@ const HeroSection = () => {
               <div className="text-dark-400">Artis Puas</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-300 mb-2">15+</div>
+              <div className="text-3xl font-bold text-primary-300 mb-2">15  +</div>
               <div className="text-dark-400">Tahun Pengalaman</div>
             </div>
           </div>

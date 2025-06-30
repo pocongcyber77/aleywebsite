@@ -1,3 +1,4 @@
+/* Tailwind CSS - This file uses Tailwind CSS directives */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
@@ -35,9 +36,7 @@
     @apply bg-dark-900/80 backdrop-blur-sm border border-dark-800/50 rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-glow-soft hover:scale-105;
   }
   
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent;
-  }
+
   
   .section-padding {
     @apply py-16 px-4 sm:px-6 lg:px-8;
@@ -90,6 +89,26 @@
 
 .animate-pulse-slow {
   animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Crimson shimmer animation */
+.animate-crimson-shimmer {
+  background: linear-gradient(90deg, #dc2626, #b91c1c, #dc2626);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.3));
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* Loading spinner */

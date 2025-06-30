@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ServiceCard from '../components/ServiceCard';
-import { Mic, Music, Headphones, Users, Podcast, Volume2, Guitar, Wrench, Zap } from 'lucide-react';
+import { Mic, Music, Headphones, Users, Podcast, Volume2, Guitar, Wrench, Zap, X } from 'lucide-react';
 
 export default function Layanan() {
   const services = [
@@ -159,7 +159,7 @@ export default function Layanan() {
                   icon={service.icon}
                   title={service.title}
                   description={service.description}
-                  features={service.features}
+                  features={service.features as string[]}
                   price={service.price}
                   popular={service.popular}
                 />

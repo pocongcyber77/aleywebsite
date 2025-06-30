@@ -9,14 +9,14 @@ export default function Booking() {
     {
       icon: Phone,
       title: 'Telepon',
-      value: '+62 812-3456-7890',
-      href: 'tel:+6281234567890'
+      value: '+62 851-3326-2359',
+      href: 'https://wa.me/6285133262359'
     },
     {
       icon: MapPin,
       title: 'Alamat',
-      value: 'Jl. Studio Musik No. 123, Jakarta',
-      href: 'https://maps.google.com'
+      value: 'Jl. Kalijudan Taruna IV No.30, Kalijudan, Kec. Mulyorejo, Surabaya, Jawa Timur 60114',
+      href: 'https://g.co/kgs/FiDEyoJ'
     },
     {
       icon: Clock,
@@ -92,19 +92,19 @@ export default function Booking() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <span className="text-dark-300">Recording Studio</span>
-                      <span className="text-primary-400 font-semibold">Rp 500.000</span>
+                      <span className="text-primary-400 font-semibold">Rp 100.000</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-dark-300">Mixing & Mastering</span>
-                      <span className="text-primary-400 font-semibold">Rp 300.000</span>
+                      <span className="text-primary-400 font-semibold">Rp 450.000</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-dark-300">Live Performance</span>
-                      <span className="text-primary-400 font-semibold">Rp 800.000</span>
+                      <span className="text-primary-400 font-semibold">Rp 750.000</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-dark-300">Rehearsal Room</span>
-                      <span className="text-primary-400 font-semibold">Rp 200.000</span>
+                      <span className="text-dark-300">Full Music Production</span>
+                      <span className="text-primary-400 font-semibold">Rp 1.500.000</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-dark-700">
