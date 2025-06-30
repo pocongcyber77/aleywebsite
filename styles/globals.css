@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 @layer base {
   * {
     @apply border-dark-800;
@@ -131,14 +137,15 @@
 
 /* Responsive Scaling Wrapper */
 #scale-wrapper {
-  transform-origin: top center;
-  transition: transform 0.3s ease-in-out;
   width: 100%;
   min-height: 100vh;
+  transition: transform 0.3s ease-in-out, height 0.3s;
+  transform-origin: top center;
 }
 
 #scale-wrapper.scale-wrapper-active {
   transform: scale(0.75);
+  /* height diatur via JS */
 }
 
 /* Ensure fixed/absolute elements stay outside the scale wrapper */
