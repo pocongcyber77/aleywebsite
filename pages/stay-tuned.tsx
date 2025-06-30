@@ -26,7 +26,7 @@ const StayTuned: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Stay Tuned - Coming Soon</title>
+        <title>Stay Tuned - Kami masih dalam tahap pengembangan</title>
         <meta name="description" content="kami sedang berada dalam tahap pengembangan. Kami sedang menyiapkan sesuatu yang mantap untuk Anda." />
         <link rel="icon" href="/favicon.png" />
       </Head>
@@ -71,7 +71,7 @@ const StayTuned: NextPage = () => {
           <div className="text-xl md:text-2xl text-[#F3F3F3]/80 mb-8 leading-relaxed">
             Kami sedang dalam tahap pengembangan.
             <br />
-            Kami sedang menyiapkan hal terbaik untuk Anda
+            Kami sedang menyiapkan yang terbaik untuk anda
             <span className="text-[#9B111E] font-mono">{dots}</span>
           </div>
 
@@ -87,7 +87,7 @@ const StayTuned: NextPage = () => {
           {/* Message */}
           <div className="bg-[#1A1A1A]/50 border border-[#9B111E]/30 rounded-xl p-6 mb-8">
             <p className="text-[#F3F3F3]/90 text-lg">
-              Fitur ini belum tersedia, Coming Soon! 
+              Halaman ini belum tersedia, tunggu aja! 
               <br />
               Stay Tune Bestie!.
             </p>
@@ -105,7 +105,7 @@ const StayTuned: NextPage = () => {
           {/* Additional Info */}
           <div className="mt-12 text-[#F3F3F3]/50 text-sm">
             <p>Jika Kamu ngeliatin aku masih gini, sabarlah tunggu aku berkembang agar menemuimu dalam masa yang tepat.</p>
-            <p className="mt-2">Silakan cek nanti atau hubungi aku untuk informasi lebih lanjut.</p>
+            <p className="mt-2">Silakan cek  nanti atau hubungi aku untuk informasi lebih lanjut.</p>
           </div>
         </div>
 
