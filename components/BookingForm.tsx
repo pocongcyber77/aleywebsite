@@ -18,6 +18,7 @@ interface BookingFormData {
 const BookingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -45,19 +46,46 @@ const BookingForm = () => {
     { value: '8', label: '8 Jam (Full Day)' },
   ];
 
+  const isMobile = () =>
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Booking data:', data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('/api/booking/redirect', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Something went wrong');
+      }
+
+      const result = await response.json();
+      let url = '';
+
+      if (isMobile()) {
+        url = `https://wa.me/${result.phone}?text=${encodeURIComponent(result.message)}`;
+        window.open(url, '_blank');
+      } else {
+        url = `https://web.whatsapp.com/send?phone=${result.phone}&text=${encodeURIComponent(result.message)}`;
+        window.location.href = url;
+      }
+
+      setIsSubmitted(true);
+      reset();
+
+    } catch (error: any) {
+      setSubmitError(error.message || 'Failed to submit booking. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -82,6 +110,12 @@ const BookingForm = () => {
           Pilih layanan dan jadwal yang sesuai dengan kebutuhan Anda
         </p>
       </div>
+
+      {submitError && (
+        <div className="bg-red-500/20 border border-red-500 text-red-300 p-3 rounded-lg text-center">
+          <p>{submitError}</p>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Personal Information */}

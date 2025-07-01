@@ -29,7 +29,9 @@ export default function Studio() {
 
   const equipment = [
     'Pro Tools HD', 'Logic Pro X', 'Ableton Live',
-    'Reaper', 'Cubase-13',
+    'Reaper', 'Cubase-13', 'FL Studio 20', 'Harrison Mixbus',
+    'Waves Plugin', 'Izotope', 'Fabfilter', 'Voxengo', 'Brainworkx',
+    'Antares', 'Slate Digital', 'SSL Native',
     'Shure SM7B', 'Neumann U87', 'AKG C414',
     'Yamaha HS8', 'KRK Rokit 8', 'Adam A7X',
     'Fender Stratocaster', 'Gibson Les Paul', 'AC GEDE SEJUK'
@@ -72,7 +74,7 @@ export default function Studio() {
                   kualitas suara yang optimal.
                 </p>
                 <p className="text-dark-300 mb-6 leading-relaxed">
-                  Dengan pengalaman lebih dari 5 tahun dalam industri musik, kami telah 
+                  Dengan pengalaman lebih dari 16 tahun dalam industri musik, kami telah 
                   membantu ratusan artis dan band menghasilkan karya musik berkualitas tinggi.
                 </p>
                 <div className="grid grid-cols-2 gap-6">

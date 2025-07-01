@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ServiceCard from '../components/ServiceCard';
 import { Mic, Music, Headphones, Users, Podcast, Volume2, Guitar, Wrench, Zap, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Layanan() {
   const services = [
@@ -18,7 +19,7 @@ export default function Layanan() {
         'Engineer berpengalaman',
         'Revisi unlimited'
       ],
-      price: 'Rp 100,000'
+      price: 'Rp 200.000'
     },
     {
       icon: Music,
@@ -97,7 +98,7 @@ export default function Layanan() {
         'Full mixing & mastering',
         'Project file included'
       ],
-      price: 'Rp 1.500.000'
+      price: 'Rp 2.000.000'
     },
     {
       icon: Wrench,
@@ -123,9 +124,33 @@ export default function Layanan() {
         'Spatial audio design',
         'Interactive audio systems'
       ],
-      price: 'Rp 800.000'
+      price: 'Rp 2.000.000'
     }
   ];
+
+  // State untuk sorting
+  const [sorted, setSorted] = useState(false);
+  const [displayedServices, setDisplayedServices] = useState(services);
+  const [animate, setAnimate] = useState(false);
+
+  // Fungsi untuk mengubah string harga ke angka
+  const parsePrice = (price: string) => {
+    return parseInt(price.replace(/[^\d]/g, ''));
+  };
+
+  // Handler tombol filter
+  const handleSort = () => {
+    setAnimate(true);
+    setTimeout(() => {
+      if (!sorted) {
+        setDisplayedServices([...services].sort((a, b) => parsePrice(a.price) - parsePrice(b.price)));
+      } else {
+        setDisplayedServices(services);
+      }
+      setSorted(!sorted);
+      setAnimate(false);
+    }, 200); // animasi keluar
+  };
 
   return (
     <>
@@ -151,9 +176,19 @@ export default function Layanan() {
               </p>
             </div>
 
+            {/* Tombol Filter Harga Termurah */}
+            <div className="flex justify-end mb-6">
+              <button
+                onClick={handleSort}
+                className={`btn-secondary px-6 py-3 font-semibold rounded-lg shadow transition-all duration-300 ${sorted ? 'bg-primary-500 text-white' : ''}`}
+              >
+                {sorted ? 'Reset' : 'Urutkan dari termurah'}
+              </button>
+            </div>
+
             {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mb-16">
-              {services.map((service, index) => (
+            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mb-16 transition-all duration-500 ${animate ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+              {displayedServices.map((service, index) => (
                 <ServiceCard
                   key={index}
                   icon={service.icon}
