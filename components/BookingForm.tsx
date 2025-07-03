@@ -28,10 +28,15 @@ const BookingForm = () => {
   } = useForm<BookingFormData>();
 
   const services = [
-    { value: 'recording', label: 'Recording Studio' },
-    { value: 'mixing', label: 'Mixing & Mastering' },
-    { value: 'live', label: 'Live Performance' },
-    { value: 'rehearsal', label: 'Rehearsal Room' },
+    { value: 'Recording Studio', label: 'Recording Studio' },
+    { value: 'Mixing & Mastering', label: 'Mixing & Mastering' },
+    { value: 'Live Performance', label: 'Live Performance' },
+    { value: 'Live Course', label: 'Live Course' },
+    { value: 'Record on The Way', label: 'Record on The Way' },
+    { value: 'Voice Over', label: 'Voice Over' },
+    { value: 'Music Production', label: 'Music Production' },
+    { value: 'Audio Restoration', label: 'Audio Restoration' },
+    { value: 'Sound Design', label: 'Sound Design' },
   ];
 
   const timeSlots = [

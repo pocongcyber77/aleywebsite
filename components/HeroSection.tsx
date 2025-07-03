@@ -4,11 +4,15 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Play, Music, Mic, Headphones } from 'lucide-react';
 import TypeIt from 'typeit';
+import { CountUp } from 'countup.js';
 
 const HeroSection = () => {
   const [currentIcon, setCurrentIcon] = useState(0);
   const icons = [Music, Mic, Headphones];
   const typeItRef = useRef(null);
+  const proyekRef = useRef<HTMLDivElement>(null);
+  const artisRef = useRef<HTMLDivElement>(null);
+  const tahunRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,6 +35,23 @@ const HeroSection = () => {
           instance.destroy(); 
         }
       }).go();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Animate counters on mount
+    const options = { duration: 5 };
+    if (proyekRef.current) {
+      const countUp = new CountUp(proyekRef.current, 500, { ...options, suffix: '+' });
+      if (!countUp.error) countUp.start();
+    }
+    if (artisRef.current) {
+      const countUp = new CountUp(artisRef.current, 50, { ...options, suffix: '+' });
+      if (!countUp.error) countUp.start();
+    }
+    if (tahunRef.current) {
+      const countUp = new CountUp(tahunRef.current, 15, { ...options, suffix: '+' });
+      if (!countUp.error) countUp.start();
     }
   }, []);
 
@@ -110,15 +131,15 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-400 mb-2">500+</div>
+              <div ref={proyekRef} className="text-3xl font-bold text-primary-400 mb-2">0+</div>
               <div className="text-dark-400">Proyek Selesai</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-400 mb-2">50+</div>
+              <div ref={artisRef} className="text-3xl font-bold text-accent-400 mb-2">0+</div>
               <div className="text-dark-400">Artis Puas</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-300 mb-2">15  +</div>
+              <div ref={tahunRef} className="text-3xl font-bold text-primary-300 mb-2">0+</div>
               <div className="text-dark-400">Tahun Pengalaman</div>
             </div>
           </div>

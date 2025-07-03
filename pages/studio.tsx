@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useRef, useEffect } from 'react';
+import { CountUp } from 'countup.js';
 
 export default function Studio() {
   const facilities = [
@@ -36,6 +38,21 @@ export default function Studio() {
     'Yamaha HS8', 'KRK Rokit 8', 'Adam A7X',
     'Fender Stratocaster', 'Gibson Les Paul', 'AC GEDE SEJUK'
   ];
+
+  const proyekRef = useRef<HTMLDivElement>(null);
+  const artisRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const options = { duration: 5 };
+    if (proyekRef.current) {
+      const countUp = new CountUp(proyekRef.current, 500, { ...options, suffix: '+' });
+      if (!countUp.error) countUp.start();
+    }
+    if (artisRef.current) {
+      const countUp = new CountUp(artisRef.current, 50, { ...options, suffix: '+' });
+      if (!countUp.error) countUp.start();
+    }
+  }, []);
 
   return (
     <>
@@ -77,13 +94,13 @@ export default function Studio() {
                   Dengan pengalaman lebih dari 16 tahun dalam industri musik, kami telah 
                   membantu ratusan artis dan band menghasilkan karya musik berkualitas tinggi.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-primary-400 mb-2">500+</div>
+                    <div ref={proyekRef} className="text-3xl font-bold text-primary-400 mb-2">0+</div>
                     <div className="text-dark-400">Proyek Selesai</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent-400 mb-2">50+</div>
+                    <div ref={artisRef} className="text-3xl font-bold text-accent-400 mb-2">0+</div>
                     <div className="text-dark-400">Artis Puas</div>
                   </div>
                 </div>

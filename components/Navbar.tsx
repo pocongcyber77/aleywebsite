@@ -24,6 +24,7 @@ const Navbar = () => {
     { name: 'Layanan', href: '/layanan' },
     { name: 'Riset', href: '/riset' },
     { name: 'Gallery', href: '/gallery' },
+    { name: 'Testimoni', href: '/testimoni' },
     { name: 'Booking', href: '/booking' },
   ];
 
