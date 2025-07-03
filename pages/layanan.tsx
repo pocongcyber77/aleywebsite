@@ -42,7 +42,7 @@ export default function Layanan() {
       features: [
         'Sound system profesional',
         'Pencahayaan Cinematic',
-        'Kapasitas 4-7 orang',
+        'Kapasitas 6 orang',
         'Technical support',
         'Recording live session'
       ],

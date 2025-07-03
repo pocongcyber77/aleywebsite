@@ -72,10 +72,21 @@ const BookingForm = () => {
 
       if (isMobile()) {
         url = `https://wa.me/${result.phone}?text=${encodeURIComponent(result.message)}`;
-        window.open(url, '_blank');
-      } else {
-        url = `https://web.whatsapp.com/send?phone=${result.phone}&text=${encodeURIComponent(result.message)}`;
         window.location.href = url;
+      } else {
+        // Try to open WhatsApp Desktop app first
+        const appUrl = `whatsapp://send?phone=${result.phone}&text=${encodeURIComponent(result.message)}`;
+        const webUrl = `https://web.whatsapp.com/send?phone=${result.phone}&text=${encodeURIComponent(result.message)}`;
+        // Create a hidden iframe to try to open the app
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = appUrl;
+        document.body.appendChild(iframe);
+        // Fallback to WhatsApp Web after 2 seconds
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          window.location.href = webUrl;
+        }, 2000);
       }
 
       setIsSubmitted(true);
