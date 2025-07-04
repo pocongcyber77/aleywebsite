@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Calendar, Clock, User, Mail, Phone, Music } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 interface BookingFormData {
   name: string;
@@ -19,6 +20,8 @@ const BookingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const prefilledService = searchParams.get('service') || '';
 
   const {
     register,
@@ -200,6 +203,8 @@ const BookingForm = () => {
           <select
             {...register('service', { required: 'Pilih layanan' })}
             className="form-select"
+            defaultValue={prefilledService}
+            disabled={!!prefilledService}
           >
             <option value="">Pilih layanan...</option>
             {services.map((service) => (

@@ -1,6 +1,7 @@
 'use client';
 
 import { LucideIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -12,6 +13,10 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ icon: Icon, title, description, features, price, popular = false }: ServiceCardProps) => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push(`/booking?service=${encodeURIComponent(title)}`);
+  };
   return (
     <div className={`card relative group hover:scale-105 transition-all duration-300 ${
       popular ? 'ring-2 ring-primary-500' : ''
@@ -56,7 +61,7 @@ const ServiceCard = ({ icon: Icon, title, description, features, price, popular 
       )}
 
       {/* CTA Button */}
-      <button className="w-full btn-primary">
+      <button className="w-full btn-primary" onClick={handleClick}>
         Pilih Layanan
       </button>
     </div>

@@ -8,49 +8,58 @@ import { CountUp } from 'countup.js';
 
 const testimonials = [
   {
-    quote: 'Rekaman pertama yang bener-bener bikin puas. Mixingnya bersih banget.',
-    name: 'Rizky A.',
-    role: 'Indie Musician',
+    quote: 'Studio paling gacorr se-Surabaya, langganan kerjasama buat pre-progammed FOH di acara2 gede ITS, kek Gerigi, PPKMB, Mabacup, dll...joss.',
+    name: 'Natha.',
+    role: 'Event Organizer',
     avatar: '/assets/avatars/rizky.jpg',
   },
   {
-    quote: 'Staffnya ramah dan ngerti visi gue banget waktu take.',
-    name: 'Amanda C.',
-    role: 'Podcaster',
+    quote: 'Pemiliknya ramah, dan hasil recording disini mantabbb, harga juga ndak mahal, yang punya band dan mau recording atau sekedar latihan ini salah studio musik yg saya rekomendasikan 👍👍👍',
+    name: 'Fach Rizal.',
+    role: 'Band Member',
     avatar: '/assets/avatars/amanda.jpg',
   },
   {
-    quote: 'Tempat nyaman, hasil profesional. Worth it setiap detiknya.',
-    name: 'Fajar R.',
-    role: 'Voice Talent',
+    quote: 'Hasilnya bagus dan memuaskan! Harganya terjangkau, tempat nyaman, orangnya juga friendly, kerjain mixingnga juga cepat, enak diajak diskusi, pokoknya recommended banget!👍',
+    name: 'Natania Kezia Setiawan.',
+    role: 'Music Producer',
     avatar: '/assets/avatars/fajar.jpg',
   },
   {
-    quote: 'Engineer-nya detail dan sabar banget. Sesi mixing jadi pengalaman seru.',
-    name: 'Dewi S.',
-    role: 'Singer-Songwriter',
+    quote: 'Tempat rekaman recommended. Orangnya asik. Alat record juga lengkap. Hasilnya bagus. Dan yg pasti murah.',
+    name: 'Cornelius Candra.',
+    role: 'Producer',
     avatar: '/assets/avatars/dewi.jpg',
   },
   {
-    quote: 'Harga bersahabat, kualitas bintang lima. Pasti balik lagi!',
-    name: 'Bima P.',
+    quote: 'Studio music yang memiliki alat lengkap serta alat record yang recomend',
+    name: 'Aji Pengestu.',
     role: 'Band Member',
     avatar: '/assets/avatars/bima.jpg',
   },
   {
-    quote: 'Booking gampang, studio bersih, alat lengkap. Highly recommended!',
-    name: 'Sari M.',
-    role: 'Content Creator',
+    quote: 'passionate and kind owner! this studio will treat amateur as a pro as well! thumbs up'!,
+    name: 'Q.M. Li.',
+    role: 'Producer',
     avatar: '/assets/avatars/sari.jpg',
   },
 ];
 
 const highlight = {
-  quote: 'Aley Studio bukan cuma tempat rekaman, tapi partner kreatif yang selalu support ide-ide liar gue. Hasilnya selalu di atas ekspektasi!',
-  name: 'Dimas W.',
-  role: 'Music Producer',
+  quote: "Great experience at Aley Studio Recording, Surabaya. 'You're My Everything' mastering was excellent. The owner and Mr. Andi were professional and talented. The best!",
+  name: 'Klas Gärding.',
+  role: 'Artist',
   avatar: '/assets/avatars/dimas.jpg',
 };
+
+// Add helper function for initials
+function getInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .map((n) => n[0]?.toUpperCase() || '')
+    .join('')
+    .slice(0, 2);
+}
 
 export default function Testimoni() {
   const ratingRef = useRef<HTMLDivElement>(null);
@@ -132,8 +141,11 @@ export default function Testimoni() {
 
             {/* Highlight Testimoni */}
             <section className="pt-2 pb-2">
-              <div className="card py-6 px-6 flex items-start gap-6 text-left max-w-lg mx-auto mb-8">
-                <Image src={highlight.avatar} alt={highlight.name} width={56} height={56} className="w-14 h-14 rounded-full" />
+              <div className="card py-8 px-8 flex items-start gap-6 text-left max-w-lg mx-auto mb-8">
+                <svg width="56" height="56" viewBox="0 0 56 56" className="rounded-full flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="28" cy="28" r="28" fill="#232323" />
+                  <text x="50%" y="54%" textAnchor="middle" fill="#9B111E" fontSize="1.6em" fontWeight="bold" fontFamily="Poppins, Inter, sans-serif" dominantBaseline="middle">{getInitials(highlight.name)}</text>
+                </svg>
                 <div>
                   <p className="text-base text-gray-100 mb-4">“{highlight.quote}”</p>
                   <p className="text-sm font-semibold text-[#9B111E]">— {highlight.name}</p>
@@ -143,14 +155,17 @@ export default function Testimoni() {
 
             {/* Grid Testimoni Klien */}
             <section className="pt-2 pb-2">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {testimonials.map((t, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-4 min-h-[100px] font-sans animate-fade-in"
+                    className="flex items-start gap-4 min-h-[160px] max-w-xl mx-auto font-sans animate-fade-in"
                     data-aos="fade-up"
                   >
-                    <Image src={t.avatar} alt={t.name} width={40} height={40} className="w-10 h-10 rounded-full mt-1" />
+                    <svg width="40" height="40" viewBox="0 0 40 40" className="rounded-full mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="20" cy="20" r="20" fill="#232323" />
+                      <text x="50%" y="54%" textAnchor="middle" fill="#9B111E" fontSize="1.1em" fontWeight="bold" fontFamily="Poppins, Inter, sans-serif" dominantBaseline="middle">{getInitials(t.name)}</text>
+                    </svg>
                     <div>
                       <p className="text-base text-gray-200 mb-2">“{t.quote}”</p>
                       <p className="text-sm font-semibold text-[#9B111E]">— {t.name}</p>

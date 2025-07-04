@@ -42,7 +42,7 @@ const HeroSection = () => {
     // Animate counters on mount
     const options = { duration: 5 };
     if (proyekRef.current) {
-      const countUp = new CountUp(proyekRef.current, 500, { ...options, suffix: '+' });
+      const countUp = new CountUp(proyekRef.current, 1000, { ...options, suffix: '+' });
       if (!countUp.error) countUp.start();
     }
     if (artisRef.current) {
@@ -50,7 +50,7 @@ const HeroSection = () => {
       if (!countUp.error) countUp.start();
     }
     if (tahunRef.current) {
-      const countUp = new CountUp(tahunRef.current, 15, { ...options, suffix: '+' });
+      const countUp = new CountUp(tahunRef.current, 16, { ...options, suffix: '+' });
       if (!countUp.error) countUp.start();
     }
   }, []);
