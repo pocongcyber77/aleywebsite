@@ -108,7 +108,7 @@ export default function Studio() {
               <div className="card p-8">
                 <div className="aspect-video bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.youtube.com/embed/HhaL0VhzfPI"
+                    src="https://www.youtube.com/embed/4zW2yej5PAM"
                     title="Galeri Studio Aley"
                     className="w-full h-full rounded-lg"
                     allowFullScreen

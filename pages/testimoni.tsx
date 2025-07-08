@@ -87,9 +87,9 @@ export default function Testimoni() {
       <Head>
         <title>Testimoni Klien - Aley Studio</title>
         <meta name="description" content="Apa kata klien tentang Aley Studio? Lihat video testimoni, kutipan review, dan rating bintang 4.9/5." />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@500;700&display=swap" rel="stylesheet" />
+        {/* Hapus import font Playfair Display & EB Garamond, gunakan Poppins dari global */}
       </Head>
-      <div className="min-h-screen bg-dark-950 flex flex-col font-sans">
+      <div className="min-h-screen bg-dark-950 flex flex-col font-display">
         <Navbar />
         <main className="flex-1">
           <div className="max-w-screen-lg mx-auto px-4 space-y-0">
@@ -99,7 +99,7 @@ export default function Testimoni() {
               <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-2 text-shadow-lg">
                 Apa Kata <span className="animate-crimson-shimmer">Mereka?</span>
               </h1>
-              <p className="text-lg md:text-xl text-dark-300 max-w-2xl mx-auto mb-0 font-serif">
+              <p className="text-lg md:text-xl text-dark-300 max-w-2xl mx-auto mb-0 font-display">
                 Suara Kami Bekerja, Tapi Suara Mereka Membuktikan.
               </p>
             </section>
@@ -129,7 +129,7 @@ export default function Testimoni() {
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
-                    src="https://www.youtube.com/embed/HhaL0VhzfPI?autoplay=1&mute=1&rel=0&controls=1"
+                    src="https://www.youtube.com/embed/iDMwAByqKio?autoplay=1&mute=1&rel=0&controls=1"
                     title="Testimoni Klien Aley Studio"
                     frameBorder="0"
                     allow="autoplay; encrypted-media"
@@ -147,8 +147,8 @@ export default function Testimoni() {
                   <text x="50%" y="54%" textAnchor="middle" fill="#9B111E" fontSize="1.6em" fontWeight="bold" fontFamily="Poppins, Inter, sans-serif" dominantBaseline="middle">{getInitials(highlight.name)}</text>
                 </svg>
                 <div>
-                  <p className="text-base text-gray-100 mb-4">“{highlight.quote}”</p>
-                  <p className="text-sm font-semibold text-[#9B111E]">— {highlight.name}</p>
+                  <p className="text-base text-gray-100 mb-4 font-display">“{highlight.quote}”</p>
+                  <p className="text-sm font-semibold text-[#9B111E] font-display">— {highlight.name}</p>
                 </div>
               </div>
             </section>
@@ -167,8 +167,8 @@ export default function Testimoni() {
                       <text x="50%" y="54%" textAnchor="middle" fill="#9B111E" fontSize="1.1em" fontWeight="bold" fontFamily="Poppins, Inter, sans-serif" dominantBaseline="middle">{getInitials(t.name)}</text>
                     </svg>
                     <div>
-                      <p className="text-base text-gray-200 mb-2">“{t.quote}”</p>
-                      <p className="text-sm font-semibold text-[#9B111E]">— {t.name}</p>
+                      <p className="text-base text-gray-200 mb-2 font-display">“{t.quote}”</p>
+                      <p className="text-sm font-semibold text-[#9B111E] font-display">— {t.name}</p>
                     </div>
                   </div>
                 ))}

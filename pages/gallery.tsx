@@ -38,7 +38,7 @@ const Gallery: NextPage = () => {
       title: "Professional Studio Setup",
       category: "Studio Equipment",
       description: "Setup studio profesional dengan peralatan terbaik",
-      image: "/images/gallery/studio-1.jpg",
+      image: "/studiodesk.jpg",
       featured: true
     },
     {
@@ -46,7 +46,7 @@ const Gallery: NextPage = () => {
       title: "Vocal Recording Session",
       category: "Recording Sessions",
       description: "Sesi rekaman vokal dengan mikrofon premium",
-      image: "/images/gallery/recording-1.jpg",
+      image: "/VocalRecordingSection.jpg",
       featured: false
     },
     {
@@ -54,7 +54,7 @@ const Gallery: NextPage = () => {
       title: "Mixing Console",
       category: "Mixing Process",
       description: "Konsol mixing analog dan digital",
-      image: "/images/gallery/mixing-1.jpg",
+      image: "/MixingConsole.jpg",
       featured: false
     },
     {
@@ -62,7 +62,7 @@ const Gallery: NextPage = () => {
       title: "Mastering Studio",
       category: "Mastering Work",
       description: "Ruang mastering dengan monitor referensi",
-      image: "/images/gallery/mastering-1.jpg",
+      image: "/studiodesk.jpg",
       featured: false
     },
     {
@@ -70,7 +70,7 @@ const Gallery: NextPage = () => {
       title: "Microphone Collection",
       category: "Studio Equipment",
       description: "Koleksi mikrofon untuk berbagai kebutuhan",
-      image: "/images/gallery/equipment-1.jpg",
+      image: "",
       featured: false
     },
     {
@@ -78,7 +78,7 @@ const Gallery: NextPage = () => {
       title: "Band Recording",
       category: "Recording Sessions",
       description: "Rekaman band dengan multiple tracks",
-      image: "/images/gallery/recording-2.jpg",
+      image: "",
       featured: false
     },
     {
@@ -86,7 +86,7 @@ const Gallery: NextPage = () => {
       title: "Digital Workstation",
       category: "Mixing Process",
       description: "Workstation digital untuk mixing",
-      image: "/images/gallery/mixing-2.jpg",
+      image: "/DigitalWorkstation.jpg",
       featured: false
     },
     {
@@ -94,7 +94,7 @@ const Gallery: NextPage = () => {
       title: "Acoustic Treatment",
       category: "Studio Equipment",
       description: "Perawatan akustik studio",
-      image: "/images/gallery/equipment-2.jpg",
+      image: "/AcousticTreatmen.jpg",
       featured: false
     }
   ];
@@ -124,33 +124,14 @@ const Gallery: NextPage = () => {
           </div>
         </section>
 
-        {/* Category Filter */}
-        <section className="py-8 px-4 sm:px-6 lg:px-8">
-          <div className="container-custom">
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="px-6 py-3 bg-primary-500 text-white rounded-lg font-medium transition-all duration-200 hover:bg-primary-600">
-                Semua
-              </button>
-              {galleryCategories.map((category) => (
-                <button key={category.id} className="px-6 py-3 bg-dark-800 text-dark-300 rounded-lg font-medium transition-all duration-200 hover:bg-dark-700 hover:text-white">
-                  {category.icon} {category.name} ({category.count})
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Featured Image */}
         <section className="py-8 px-4 sm:px-6 lg:px-8">
           <div className="container-custom">
             {galleryItems.filter(item => item.featured).map((item) => (
               <div key={item.id} className="relative rounded-2xl overflow-hidden mb-12">
-                <div className="w-full h-96 bg-gradient-to-br from-primary-500/30 to-accent-500/30 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-8xl mb-4">🎛️</div>
-                    <h2 className="text-3xl font-bold text-white mb-2">{item.title}</h2>
-                    <p className="text-dark-200 text-lg">{item.description}</p>
-                  </div>
+                <div className="w-full h-96 flex items-center justify-center" style={{backgroundImage: 'url(/studiodesk.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-accent-500/30"></div>
+                  {/* Konten dihapus sesuai permintaan */}
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 to-transparent"></div>
                 <div className="absolute bottom-6 left-6">
@@ -170,13 +151,13 @@ const Gallery: NextPage = () => {
               {galleryItems.filter(item => !item.featured).map((item) => (
                 <div key={item.id} className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-xl bg-dark-900/50 border border-dark-800/50">
-                    <div className="aspect-square bg-gradient-to-br from-dark-800 to-dark-900 flex items-center justify-center">
-                      <div className="text-4xl opacity-60 group-hover:opacity-80 transition-opacity">
-                        {item.category === "Studio Equipment" && "🎛️"}
-                        {item.category === "Recording Sessions" && "🎤"}
-                        {item.category === "Mixing Process" && "🎧"}
-                        {item.category === "Mastering Work" && "🎵"}
-                      </div>
+                    <div className="aspect-square bg-gradient-to-br from-dark-800 to-dark-900 flex items-center justify-center overflow-hidden">
+                      <img src={item.image} alt={item.title} className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:blur-[2.5px] group-hover:brightness-75" />
+                      {item.image === '' && (
+                        <div className="flex items-center justify-center w-full h-full text-dark-400 text-5xl">
+                          <span className="opacity-40">?</span>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -191,6 +172,30 @@ const Gallery: NextPage = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Artist Gallery Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container-custom">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Gallery Artist</h2>
+              <p className="text-dark-300 max-w-2xl mx-auto">Potret para artis yang telah berkarya di studio kami</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="relative overflow-hidden rounded-xl bg-dark-900/50 border border-dark-800/50 group">
+                <img src="/artist1.jpg" alt="Artist 1" className="object-cover w-full h-full aspect-square" />
+                <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">SEKUPAT</span>
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-xl bg-dark-900/50 border border-dark-800/50 group">
+                <img src="/lantai 2 berdansa.jpeg" alt="Artist 2" className="object-cover w-full h-full aspect-square" />
+                <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">LANTAI DUA BERDANSA</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
