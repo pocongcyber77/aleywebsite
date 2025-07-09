@@ -70,67 +70,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Coming Soon Features Section */}
-        <section className="section-padding bg-dark-900/50">
-          <div className="container-custom">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-                Fitur <span className="gradient-text">Mendatang</span>
-              </h2>
-              <p className="text-xl text-dark-300 max-w-3xl mx-auto">
-                Beberapa fitur eksperimental yang sedang kami kembangkan untuk pengalaman yang lebih baik
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/fitur-eksperimental" className="card group hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">🚀</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Fitur Eksperimental</h3>
-                <p className="text-dark-300 text-sm mb-4">
-                  Fitur terbaru yang sedang dalam tahap pengembangan
-                </p>
-                <span className="text-primary-400 text-sm font-medium group-hover:text-primary-300">
-                  Coba Sekarang →
-                </span>
-              </Link>
-
-              <Link href="/konten-baru" className="card group hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">✨</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Konten Baru</h3>
-                <p className="text-dark-300 text-sm mb-4">
-                  Konten eksklusif yang akan segera hadir
-                </p>
-                <span className="text-accent-400 text-sm font-medium group-hover:text-accent-300">
-                  Lihat Preview →
-                </span>
-              </Link>
-
-              <Link href="/fitur-advanced" className="card group hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 bg-dark-800 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">⚡</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Fitur Advanced</h3>
-                <p className="text-dark-300 text-sm mb-4">
-                  Fitur canggih untuk pengguna profesional
-                </p>
-                <span className="text-dark-400 text-sm font-medium group-hover:text-dark-300">
-                  Pelajari Lebih Lanjut →
-                </span>
-              </Link>
-            </div>
-
-            <div className="text-center mt-8">
-              <p className="text-dark-400 text-sm">
-                * Fitur-fitur ini masih dalam tahap pengembangan dan akan segera hadir
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />

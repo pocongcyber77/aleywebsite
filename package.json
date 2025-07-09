@@ -17,6 +17,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
+    "swiper": "^11.2.10",
     "typeit": "^8.8.7"
   },
   "devDependencies": {

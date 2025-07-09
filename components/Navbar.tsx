@@ -25,7 +25,7 @@ const Navbar = () => {
     { name: 'Riset', href: '/riset' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Testimoni', href: '/testimoni' },
-    { name: 'Booking', href: '/booking' },
+    // Booking dihapus dari navItems
   ];
 
   return (
@@ -34,8 +34,8 @@ const Navbar = () => {
         ? 'bg-black/75 backdrop-blur-md shadow-lg' 
         : 'bg-black/75 backdrop-blur-md'}
     `}>
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+      <div className="container-custom px-0 sm:px-0 md:px-4">
+        <div className="flex items-center justify-between h-16 px-0 sm:px-0 md:px-4 lg:px-8">
           {/* Logo */}
           <Logo />
 

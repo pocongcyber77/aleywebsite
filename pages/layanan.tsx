@@ -76,16 +76,16 @@ export default function Layanan() {
     },
     {
       icon: Volume2,
-      title: 'Voice Over',
-      description: 'Layanan voice over untuk iklan, dokumenter, dan konten multimedia.',
+      title: 'Front Of House',
+      description: 'Memaksimalkan setiap aspek teknis pertunjukan berjalan lancar, memberikan pengalaman terbaik bagi penonton',
       features: [
-        'Voice talent profesional',
-        'Script reading assistance',
-        'Multiple takes & selection',
-        'Background music sync',
-        'Various output formats'
+        'System architecture planning',
+        'Reliable crew management',
+        'Optimized stage monitoring,',
+        'Pre-programmed sequence',
+        'Rapid technical response,'
       ],
-      price: 'Rp 300.000'
+      price: 'Rp 1.000.000'
     },
     {
       icon: Guitar,

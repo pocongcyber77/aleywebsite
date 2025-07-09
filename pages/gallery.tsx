@@ -3,6 +3,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const Gallery: NextPage = () => {
   const galleryCategories = [
@@ -70,7 +74,7 @@ const Gallery: NextPage = () => {
       title: "Microphone Collection",
       category: "Studio Equipment",
       description: "Koleksi mikrofon untuk berbagai kebutuhan",
-      image: "",
+      image: "MicCollection.png",
       featured: false
     },
     {
@@ -78,7 +82,7 @@ const Gallery: NextPage = () => {
       title: "Band Recording",
       category: "Recording Sessions",
       description: "Rekaman band dengan multiple tracks",
-      image: "",
+      image: "/BandRecording.png",
       featured: false
     },
     {
@@ -95,6 +99,14 @@ const Gallery: NextPage = () => {
       category: "Studio Equipment",
       description: "Perawatan akustik studio",
       image: "/AcousticTreatmen.jpg",
+      featured: false
+    },
+    {
+      id: 9,
+      title: "Stage FOH",
+      category: "Studio On Stage",
+      description: "Front of House (FOH) terbaik untuk pertunjukan live",
+      image: "/foh.jpeg",
       featured: false
     }
   ];
@@ -177,24 +189,139 @@ const Gallery: NextPage = () => {
         </section>
 
         {/* Artist Gallery Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <section id="gallery" className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="container-custom">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Gallery Artist</h2>
-              <p className="text-dark-300 max-w-2xl mx-auto">Potret para artis yang telah berkarya di studio kami</p>
+            <div className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Gallery Artist</h2>
+              <p className="text-gray-400 text-sm max-w-2xl mx-auto mb-2">Potret beberapa artis yang telah berkarya di studio kami</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <div className="relative overflow-hidden rounded-xl bg-dark-900/50 border border-dark-800/50 group">
-                <img src="/artist1.jpg" alt="Artist 1" className="object-cover w-full h-full aspect-square" />
-                <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">SEKUPAT</span>
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-xl bg-dark-900/50 border border-dark-800/50 group">
-                <img src="/lantai 2 berdansa.jpeg" alt="Artist 2" className="object-cover w-full h-full aspect-square" />
-                <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">LANTAI DUA BERDANSA</span>
-                </div>
+            <div className="overflow-x-auto scrollbar-hide pb-4">
+              <Swiper
+                modules={[Navigation]}
+                navigation={{
+                  nextEl: '.artist-swiper-next',
+                  prevEl: '.artist-swiper-prev',
+                  disabledClass: 'opacity-30 cursor-not-allowed',
+                }}
+                spaceBetween={24}
+                slidesPerView="auto"
+                slidesOffsetAfter={32}
+                watchSlidesProgress
+                watchOverflow
+                breakpoints={{
+                  640: { spaceBetween: 24 },
+                  768: { spaceBetween: 24 },
+                  1024: { spaceBetween: 24 },
+                  1280: { spaceBetween: 24 },
+                }}
+                className="!px-2"
+                style={{ paddingBottom: '0.5rem' }}
+              >
+                {/* List all artist cards as SwiperSlide */}
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/artist1.jpg" alt="Artist 1" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">SEKUPAT</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/PigFaceJoe.png" alt="Artist 2" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">PIG FACE JOE</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/JamurBand.png" alt="Artist 3" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">JAMUR BAND</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/tdgo.png" alt="Artist 4" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">THE DANCE GOING ON</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/TheDexter.png" alt="Artist 5" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">The Dexter</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/Orbit.png" alt="Artist 6" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">Orbit</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/E-Candy.png" alt="Artist 7" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">E-Candy</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/lantai 2 berdansa.jpeg" alt="Artist 8" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">LANTAI DUA BERDANSA</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/ZaaszBOI.png" alt="Artist 9" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">ZASSZBOI</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/rastamaiez.png" alt="Artist 10" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">RASTAMANIEZ</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/ElHakan.png" alt="Artist 11" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">El Hakan</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{ width: 'auto' }}>
+                  <div className="relative w-[280px] md:w-[320px] flex-none shrink-0 rounded-xl overflow-hidden bg-dark-900/50 border border-dark-800/50 shadow-md group transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-primary-500 cursor-pointer">
+                    <img src="/UTB.png" alt="Artist 12" className="object-cover w-full h-full aspect-square" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wide drop-shadow-lg">UNDER THE BLANKET</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+              <div className="flex justify-center gap-4 mt-4">
+                <button className="artist-swiper-prev bg-dark-800 hover:bg-primary-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow transition disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Sebelumnya">
+                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button className="artist-swiper-next bg-dark-800 hover:bg-primary-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow transition disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Berikutnya">
+                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -208,13 +335,13 @@ const Gallery: NextPage = () => {
                 Studio Statistics
               </h2>
               <p className="text-dark-300 max-w-2xl mx-auto">
-                Beberapa angka yang menunjukkan kapasitas dan pengalaman studio kami
+                Beberapa data yang menunjukkan kapasitas dan pengalaman studio kami
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-400 mb-2">500+</div>
+                <div className="text-4xl font-bold text-primary-400 mb-2">1000+</div>
                 <div className="text-dark-300 text-sm">Proyek Selesai</div>
               </div>
               <div className="text-center">
@@ -226,7 +353,7 @@ const Gallery: NextPage = () => {
                 <div className="text-dark-300 text-sm">Studio Availability</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-accent-400 mb-2">5+</div>
+                <div className="text-4xl font-bold text-accent-400 mb-2">16+</div>
                 <div className="text-dark-300 text-sm">Tahun Pengalaman</div>
               </div>
             </div>
